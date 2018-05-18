@@ -66,9 +66,9 @@
 	- putInByteBufferDouble
 	- putInByteBufferFloat
 	- to
-	
+- util/UtilByte is introduce to replace util/Util. It specializes in byte manipulation	
 		
-}
+
 
 - util/
 - input
