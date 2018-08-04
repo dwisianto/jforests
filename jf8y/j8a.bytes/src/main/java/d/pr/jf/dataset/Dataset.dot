@@ -1,0 +1,16 @@
+graph {
+    ByteSerializable -- NumericArray;
+    ByteSerializable -- Feature;
+    
+    NumericArray -- NumericArrayNull;
+    NumericArray -- NumericArrayInt;    
+    NumericArray -- NumericArrayShort;    
+    NumericArray -- NumericArrayBit;    
+    NumericArray -- NumericArrayByte;        
+    NumericArrayType -- NumericArrayFactory;
+    
+    Dataset -- DatasetLoader;
+    RankingDataset -- RankingDatasetLoader;
+    
+    Feature -- Histogram;
+  }
