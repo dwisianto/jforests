@@ -1,10 +1,18 @@
 
 
+- jforests
+	- util
+	- input
+	- config
+
+
+
 
 - dataset package handle _byte array_, _Feature_ and _Dataset_
 - one byte is essentially a character and byte array is a string  
 - One may convert from a byte to string and vice versa using Charset.UTF_8  
 - Saving byte array into a [File](https://www.mkyong.com/java/how-to-convert-array-of-bytes-into-file/)
+
 - dataset/ByteSerializable interface 
 	- is being used by NumericArr and Dataset
 	- contains **getSizeInBytes**,
@@ -70,9 +78,15 @@
 		
 
 
-- util/
-- input
-- config
-- util
 
+- util/UtlByteArray1
+	- setBoolean
+	- getBoolean
+- util/UtilByteArray1Try
+	- t_Boolean
+- Why ByteBuffer class doesn't provide method to read write boolean data type, is there any workaround?
+	- Boolean is a 1-bit datatype. ByteBuffer works with bytes. You'll have to decide yourself how you'll represent a boolean as a byte (such as 0 for false and 1 for true, or 0 for false and non-zero for true).
+- util/utlByteArray3
+	- http://www.java2s.com/Book/Java/Examples/Convert_data_to_byte_array_back_and_forth.htm
+	- 
 

@@ -1,4 +1,6 @@
-package d.pr.jf.dataset;
+package d.pr.jf.dataset.numeric;
+
+import d.pr.jf.dataset.IntByteSerializable;
 
 public abstract class NumArr implements IntByteSerializable {
 

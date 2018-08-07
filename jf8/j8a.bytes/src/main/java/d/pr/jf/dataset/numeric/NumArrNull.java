@@ -1,13 +1,8 @@
 package d.pr.jf.dataset.numeric;
 
-/**
- * http://www.herongyang.com/Java/Bit-String-Set-Bit-to-Byte-Array.html
- * https://en.wikipedia.org/wiki/Bit_array
- * 
- */
-public class NumArrBit extends NumArr {
+public class NumArrNull extends NumArr {
 
-	public NumArrBit(int length) {
+	public NumArrNull(int length) {
 		super(length);
 		// TODO Auto-generated constructor stub
 	}

@@ -1,4 +1,4 @@
-package d.pr.jf.dataset;
+package d.pr.jf.dataset.numeric;
 
 public class NumArrByte extends NumArr {
 	

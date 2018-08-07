@@ -13,6 +13,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
 
+
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
@@ -38,7 +39,9 @@ public class Try1aBytes {
 		String s1a = "car";
 		byte[] byteArr = s1a.getBytes(StandardCharsets.UTF_8);
 		// print the byte[] elements
-		System.out.println("String to byte array: " + Arrays.toString(byteArr));		
+		System.out.println(" String to byte array: " + Arrays.toString(byteArr));
+		
+		
 	}
 
 	/**
@@ -52,10 +55,9 @@ public class Try1aBytes {
 		byte[] byteArray1 = { 80, 65, 78, 75, 65, 74 };
 		
 		String str1 = new String(byteArray1);
-		String str2 = new String(byteArray2);
-		
-		System.out.println(str1);
-		System.out.println(str2);
+		String str2 = new String(byteArray2);		
+		System.out.println( " "+str1);
+		System.out.println( " "+str2);
 		
 	}
 
@@ -77,6 +79,26 @@ public class Try1aBytes {
 	}
 	
 	
+	/**
+	 * primitive type to byte value
+	 */
+	@Test
+	public void t2a() {
+		System.out.println("t2a");
+		
+		//Double d1a = 1.0;
+		//System.out.println( Double.doubleToLongBits(1.0) ); 
+		  double d = 1.3;
+	     long d1 = (long) d;
+	        long d2 = (Double.doubleToLongBits(d));
+	        System.out.printf("cast %016X bits %016X\n", d1, d2);	
+	        
+	        double d2Prime = Double.longBitsToDouble(d2);
+	        System.out.println(d2Prime);
+	        
+		
+		
+	}
 	
 
 	
