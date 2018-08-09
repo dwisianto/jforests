@@ -11,14 +11,6 @@ import org.junit.runners.MethodSorters;
 public class NumArrShortTry {
 
 	
-	@Test
-	public void t0a() {
-		
-		Assert.assertEquals(Byte.SIZE,  );		
-		//System.out.println( Bit.SIZE );		
-		System.out.println( 
-		System.out.println( Short.SIZE );		
-	}
 
 	
 	@Test
