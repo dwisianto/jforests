@@ -1,5 +1,7 @@
 package d.pr.jf.dataset.numeric;
 
+import d.pr.jf.dataset.numeric.NumArrFactory.NumArrType;
+
 /**
  * http://www.herongyang.com/Java/Bit-String-Set-Bit-to-Byte-Array.html
  * https://en.wikipedia.org/wiki/Bit_array
@@ -46,6 +48,11 @@ public class NumArrBit extends NumArr {
 	public void set(int index, int value) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public NumArrType getType() {
+		return NumArrType.BIT;
 	}
 
 }

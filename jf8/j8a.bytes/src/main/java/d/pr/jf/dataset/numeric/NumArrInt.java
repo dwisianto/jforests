@@ -1,5 +1,7 @@
 package d.pr.jf.dataset.numeric;
 
+import d.pr.jf.dataset.numeric.NumArrFactory.NumArrType;
+
 public class NumArrInt extends NumArr {
 
 	public NumArrInt(int length) {
@@ -41,6 +43,11 @@ public class NumArrInt extends NumArr {
 	public void set(int index, int value) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public NumArrType getType() {
+		return NumArrType.INT;
 	}
 
 }

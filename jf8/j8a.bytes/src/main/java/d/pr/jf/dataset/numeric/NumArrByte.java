@@ -1,5 +1,7 @@
 package d.pr.jf.dataset.numeric;
 
+import d.pr.jf.dataset.numeric.NumArrFactory.NumArrType;
+
 public class NumArrByte extends NumArr {
 	
 	private byte[] data;
@@ -48,6 +50,12 @@ public class NumArrByte extends NumArr {
 			offset++;
 		}
 		return offset;
+	}
+
+
+	@Override
+	public NumArrType getType() {
+		return NumArrType.BYTE;
 	}
 	
 
