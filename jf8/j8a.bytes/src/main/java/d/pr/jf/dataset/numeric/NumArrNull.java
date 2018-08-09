@@ -53,6 +53,12 @@ public class NumArrNull extends NumArr {
 	public NumArrType getType() {
 		return NumArrType.NULL;
 	}
+
+	@Override
+	public int getSizeInBit() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 	
 
 

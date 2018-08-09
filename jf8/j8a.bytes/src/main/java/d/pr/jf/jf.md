@@ -90,3 +90,7 @@
 	- http://www.java2s.com/Book/Java/Examples/Convert_data_to_byte_array_back_and_forth.htm
 	- 
 
+
+- NumArrShort/get returns an int instead of a short. Why?
+- getSizeInBit and getSizeInByte is more readable than getSizePerItem
+- 

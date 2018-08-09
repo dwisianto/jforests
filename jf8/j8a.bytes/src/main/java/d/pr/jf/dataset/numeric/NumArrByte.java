@@ -57,6 +57,13 @@ public class NumArrByte extends NumArr {
 	public NumArrType getType() {
 		return NumArrType.BYTE;
 	}
+
+
+	@Override
+	public int getSizeInBit() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 	
 
 

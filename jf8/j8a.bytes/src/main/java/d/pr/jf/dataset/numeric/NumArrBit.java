@@ -55,4 +55,10 @@ public class NumArrBit extends NumArr {
 		return NumArrType.BIT;
 	}
 
+	@Override
+	public int getSizeInBit() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

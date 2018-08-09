@@ -50,4 +50,10 @@ public class NumArrInt extends NumArr {
 		return NumArrType.INT;
 	}
 
+	@Override
+	public int getSizeInBit() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

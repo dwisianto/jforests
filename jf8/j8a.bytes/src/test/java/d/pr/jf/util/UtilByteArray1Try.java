@@ -12,6 +12,14 @@ public class UtilByteArray1Try {
 	
 	
 	
+	@Test
+	public void t0a() {
+
+		//System.out.println( Bit.SIZE );		
+		Assert.assertEquals( Byte.SIZE, UtilByteArray.LEN_BYTE_CHAR );		
+		Assert.assertEquals( Short.SIZE, UtilByteArray.LEN_BYTE_SHORT );		
+
+	}
 	
 	
 	@Test
