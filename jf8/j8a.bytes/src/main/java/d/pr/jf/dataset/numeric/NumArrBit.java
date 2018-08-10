@@ -8,11 +8,24 @@ import d.pr.jf.dataset.numeric.NumArrFactory.NumArrType;
  * 
  */
 public class NumArrBit extends NumArr {
-
+	
+	
 	public NumArrBit(int length) {
 		super(length);
 		// TODO Auto-generated constructor stub
 	}
+
+	
+	@Override
+	public NumArrType getType() {
+		return NumArrType.BIT;
+	}
+
+	@Override
+	public int getSizeInBits() {
+		// TODO Auto-generated method stub
+		return 0;
+	}	
 
 	@Override
 	public int getBitsPerItem() {
@@ -25,19 +38,8 @@ public class NumArrBit extends NumArr {
 		// TODO Auto-generated method stub
 		return 0;
 	}
-
-	@Override
-	public int toByteArray(byte[] arr, int offset) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int loadFromByteArray(byte[] arr, int offset) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
+	
+	
 	@Override
 	public int get(int index) {
 		// TODO Auto-generated method stub
@@ -48,17 +50,28 @@ public class NumArrBit extends NumArr {
 	public void set(int index, int value) {
 		// TODO Auto-generated method stub
 		
-	}
+	}		
+	
 
 	@Override
-	public NumArrType getType() {
-		return NumArrType.BIT;
-	}
-
-	@Override
-	public int getSizeInBit() {
+	public int toByteArray(byte[] arr, int offset) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
+	@Override
+	public int fromByteArray(byte[] arr, int offset) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+
+	@Override
+	public NumArr getSubSample(int[] indices) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 }

@@ -11,6 +11,20 @@ public class NumArrByte extends NumArr {
 		data = new byte[length];		
 	}
 	
+	
+	
+	@Override
+	public NumArrType getType() {
+		return NumArrType.BYTE;
+	}
+
+
+	@Override
+	public int getSizeInBits() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	
 
 	@Override
 	public int getSizeInBytes() {
@@ -44,7 +58,7 @@ public class NumArrByte extends NumArr {
 	}
 
 	@Override
-	public int loadFromByteArray(byte[] arr, int offset) {
+	public int fromByteArray(byte[] arr, int offset) {
 		for (int i = 0; i < length; i++) {
 			data[i] = arr[offset];
 			offset++;
@@ -54,15 +68,9 @@ public class NumArrByte extends NumArr {
 
 
 	@Override
-	public NumArrType getType() {
-		return NumArrType.BYTE;
-	}
-
-
-	@Override
-	public int getSizeInBit() {
+	public NumArr getSubSample(int[] indices) {
 		// TODO Auto-generated method stub
-		return 0;
+		return null;
 	}
 	
 

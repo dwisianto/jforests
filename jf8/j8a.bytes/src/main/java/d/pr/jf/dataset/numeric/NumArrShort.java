@@ -1,5 +1,7 @@
 package d.pr.jf.dataset.numeric;
 
+import java.util.Arrays;
+
 import d.pr.jf.dataset.numeric.NumArrFactory.NumArrType;
 import d.pr.jf.util.UtilByteArray;
 
@@ -24,11 +26,10 @@ public class NumArrShort extends NumArr {
 	}
 	
 	@Override
-	public int getSizeInBit() {
-		return getBitsPerItem();
+	public int getSizeInBits() {
+		return getBitsPerItem()*length;
 	}
 	
-
 	@Override
 	public int getSizeInBytes() {
 		return UtilByteArray.LEN_BYTE_SHORT*length;
@@ -41,7 +42,6 @@ public class NumArrShort extends NumArr {
 
 	@Override
 	public void set(int index, int value) {
-		// TODO Auto-generated method stub
 		data[index] = (short)value;		
 	}
 	
@@ -59,7 +59,7 @@ public class NumArrShort extends NumArr {
 	}
 
 	@Override
-	public int loadFromByteArray(byte[] arr, int offset) {
+	public int fromByteArray(byte[] arr, int offset) {
 		
 		for (int i = 0; i<length; i++) {			
 			data[i] = UtilByteArray.getShort(arr, offset); 
@@ -68,6 +68,27 @@ public class NumArrShort extends NumArr {
 		
 		return offset;
 	}
+	
+	/**
+	 * get subsample of the "data" using the listed indices 
+	 */
+	@Override
+	public NumArr getSubSample(int[] indices) {
+		
+		NumArrShort subSampleArray = new NumArrShort(indices.length);
+		for (int i = 0 ; i < indices.length; i++) {
+			subSampleArray.data[i] = data[indices[i]];
+		}
+		
+		return subSampleArray;
+	}
+	
+	
+	public String toString() {
+		return Arrays.toString(data);
+	}
+	
+	
 
 }
 

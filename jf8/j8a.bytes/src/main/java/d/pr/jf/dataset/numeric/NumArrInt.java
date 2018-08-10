@@ -28,7 +28,7 @@ public class NumArrInt extends NumArr {
 	}
 
 	@Override
-	public int loadFromByteArray(byte[] arr, int offset) {
+	public int fromByteArray(byte[] arr, int offset) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
@@ -51,9 +51,15 @@ public class NumArrInt extends NumArr {
 	}
 
 	@Override
-	public int getSizeInBit() {
+	public int getSizeInBits() {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	@Override
+	public NumArr getSubSample(int[] indices) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

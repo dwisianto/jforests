@@ -5,7 +5,6 @@ import d.pr.jf.dataset.numeric.NumArrFactory.NumArrType;
 public class NumArrNull extends NumArr {
 	
 	private static NumArrNull instance;
-
 	static {
 		instance = new NumArrNull(0);
 	}
@@ -16,13 +15,29 @@ public class NumArrNull extends NumArr {
 
 	public NumArrNull(int length) {
 		super(length);
+	}
+	
+	
+	@Override
+	public NumArrType getType() {
+		return NumArrType.NULL;
+	}
 
+	@Override
+	public int getSizeInBits() {
+		return 0;
 	}
 	
 	@Override
 	public int getSizeInBytes() {
 		return 0;
 	}
+	
+	@Override
+	public int getBitsPerItem() {
+		return 0;
+	}
+	
 
 	@Override
 	public int get(int index) {
@@ -34,10 +49,6 @@ public class NumArrNull extends NumArr {
 		// Do nothing
 	}
 
-	@Override
-	public int getBitsPerItem() {
-		return 0;
-	}
 
 	@Override
 	public int toByteArray(byte[] arr, int offset) {
@@ -45,19 +56,14 @@ public class NumArrNull extends NumArr {
 	}
 
 	@Override
-	public int loadFromByteArray(byte[] arr, int offset) {
+	public int fromByteArray(byte[] arr, int offset) {
 		return offset;
 	}
 
-	@Override
-	public NumArrType getType() {
-		return NumArrType.NULL;
-	}
 
 	@Override
-	public int getSizeInBit() {
-		// TODO Auto-generated method stub
-		return 0;
+	public NumArr getSubSample(int[] indices) {
+		return null;
 	}
 	
 
