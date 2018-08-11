@@ -10,15 +10,34 @@ import org.junit.Assert;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class UtilByteArray1Try {
 	
-	
-	
+
+	/**
+	 * System.out.println( Boolean.BYTES );
+	 * System.out.println( String.B);
+	 * System.out.println( Bit.SIZE );		
+	 */
 	@Test
 	public void t0a() {
-
-		//System.out.println( Bit.SIZE );		
-		Assert.assertEquals( Byte.SIZE, UtilByteArray.LEN_BYTE_CHAR );		
-		Assert.assertEquals( Short.SIZE, UtilByteArray.LEN_BYTE_SHORT );		
-
+		
+		Assert.assertEquals( Byte.BYTES, UtilByteArray.LEN_BYTE_CHAR );		
+		Assert.assertEquals( Short.BYTES, UtilByteArray.LEN_BYTE_SHORT );		
+		Assert.assertEquals( Integer.BYTES, UtilByteArray.LEN_BYTE_INT );		
+		Assert.assertEquals( Long.BYTES, UtilByteArray.LEN_BYTE_LONG );		
+		Assert.assertEquals( Float.BYTES, UtilByteArray.LEN_BYTE_FLOAT );		
+		Assert.assertEquals( Double.BYTES, UtilByteArray.LEN_BYTE_DOUBLE );
+		
+	}
+	
+	@Test
+	public void t0b_bits() {
+		
+		Assert.assertEquals( Byte.SIZE,    Byte.SIZE * UtilByteArray.LEN_BYTE_CHAR );		
+		Assert.assertEquals( Short.SIZE,   Byte.SIZE * UtilByteArray.LEN_BYTE_SHORT );		
+		Assert.assertEquals( Integer.SIZE, Byte.SIZE * UtilByteArray.LEN_BYTE_INT );		
+		Assert.assertEquals( Long.SIZE,    Byte.SIZE * UtilByteArray.LEN_BYTE_LONG );		
+		Assert.assertEquals( Float.SIZE,   Byte.SIZE * UtilByteArray.LEN_BYTE_FLOAT );		
+		Assert.assertEquals( Double.SIZE,  Byte.SIZE * UtilByteArray.LEN_BYTE_DOUBLE );		
+		
 	}
 	
 	

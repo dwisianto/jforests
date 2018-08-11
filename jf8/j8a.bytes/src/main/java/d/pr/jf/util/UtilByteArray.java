@@ -11,14 +11,14 @@ import java.util.Arrays;
 public class UtilByteArray {
 		
 	
-	public static int LEN_BYTE_BIT=1;
-	public static int LEN_BYTE_BOOL=1;
-	public static int LEN_BYTE_CHAR=2;
-	public static int LEN_BYTE_SHORT=2;
-	public static int LEN_BYTE_INT=4;
-	public static int LEN_BYTE_LONG=8;
-	public static int LEN_BYTE_FLOAT=4;
-	public static int LEN_BYTE_DOUBLE=8;		
+	public static int LEN_BYTE_BIT    = 1;
+	public static int LEN_BYTE_BOOL   = 1;
+	public static int LEN_BYTE_CHAR   = 2;
+	public static int LEN_BYTE_SHORT  = Short.BYTES; // 2
+	public static int LEN_BYTE_INT    = Integer.BYTES; // 4
+	public static int LEN_BYTE_LONG   = Long.BYTES; // 8
+	public static int LEN_BYTE_FLOAT  = Float.BYTES; // 4
+	public static int LEN_BYTE_DOUBLE = Double.BYTES; // 8
 	
 	public static ByteOrder BYTE_ORDER_ENDIAN = ByteOrder.nativeOrder(); // ByteOrder.BIG_ENDIAN ByteOrder.LITTLE_ENDIAN;
 	

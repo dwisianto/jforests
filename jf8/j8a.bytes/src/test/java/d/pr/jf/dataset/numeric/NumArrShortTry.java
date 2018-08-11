@@ -15,16 +15,17 @@ public class NumArrShortTry {
 
 	
 
-	
+	/**
+	 * Initialization using a constructor
+	 */
 	@Test
-	public void t1a_size() {
+	public void t1a_create_constructor() {
 		
 		int iLen = 3;
 		NumArrShort naShort = new NumArrShort(iLen);
 		
 		System.out.println( naShort.getSizeInBytes() ); 
-		
-		
+				
 		Assert.assertEquals( NumArrType.SHORT,naShort.getType() );
 		Assert.assertEquals( iLen, naShort.length );
 		Assert.assertEquals( Short.SIZE, naShort.getBitsPerItem() );
@@ -32,6 +33,33 @@ public class NumArrShortTry {
 		Assert.assertEquals( iLen*Short.SIZE , naShort.getSizeInBits() );
 		
 	}
+
+	/**
+	 * Initialization using a factory method
+	 */
+	@Test
+	public void t1a_create_factory() throws Exception {
+				
+		int iLen = 3;
+		NumArr naTmp = NumArrFactory.createNumericArray(NumArrFactory.NumArrType.INT, iLen);		
+		NumArrInt na = (NumArrInt) naTmp; 
+		System.out.println( na );
+		
+		Assert.assertEquals( NumArrType.SHORT, na.getType() );
+		Assert.assertEquals( iLen, na.length );
+		Assert.assertEquals( Integer.SIZE, na.getBitsPerItem() );
+		Assert.assertEquals( iLen*UtilByteArray.LEN_BYTE_INT , na.getSizeInBytes() );
+		Assert.assertEquals( iLen*Integer.SIZE , na.getSizeInBits() );
+				
+		//System.out.println( na.getLength() );
+		//System.out.println( na.getSizeInBits() ); 
+		//System.out.println( na.getSizeInBytes() ); 
+		//System.out.println( na.getSizeInBits() );
+		
+	}
+	
+	
+	
 	
 	@Test
 	public void t2a_get_set() {

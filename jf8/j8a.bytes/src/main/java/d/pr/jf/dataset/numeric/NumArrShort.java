@@ -15,6 +15,11 @@ public class NumArrShort extends NumArr {
 		data = new short[iLength];
 	}
 	
+	public String toString() {
+		return Arrays.toString(data);
+	}
+	
+	
 	@Override
 	public NumArrType getType() {
 		return NumArrType.SHORT;
@@ -27,12 +32,12 @@ public class NumArrShort extends NumArr {
 	
 	@Override
 	public int getSizeInBits() {
-		return getBitsPerItem()*length;
+		return length*Short.SIZE;
 	}
 	
 	@Override
 	public int getSizeInBytes() {
-		return UtilByteArray.LEN_BYTE_SHORT*length;
+		return length*Short.BYTES;
 	}
 	
 	@Override
@@ -84,9 +89,6 @@ public class NumArrShort extends NumArr {
 	}
 	
 	
-	public String toString() {
-		return Arrays.toString(data);
-	}
 	
 	
 
