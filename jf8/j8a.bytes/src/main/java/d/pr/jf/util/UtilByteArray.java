@@ -4,15 +4,21 @@ package d.pr.jf.util;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-import java.nio.LongBuffer;
-import java.nio.ShortBuffer;
-import java.util.Arrays;
 
+
+
+/**
+ * 
+ * - move
+ * - 'arrayInt' and 'arrayDouble' to be after arrayByte
+ *
+ */
 public class UtilByteArray {
 		
 	
 	public static int LEN_BYTE_BIT    = 1;
 	public static int LEN_BYTE_BOOL   = 1;
+	public static int LEN_BYTE_BYTE   = 1;
 	public static int LEN_BYTE_CHAR   = 2;
 	public static int LEN_BYTE_SHORT  = Short.BYTES; // 2
 	public static int LEN_BYTE_INT    = Integer.BYTES; // 4
@@ -55,25 +61,6 @@ public class UtilByteArray {
 	}
 	
 	
-	public static int setArrayInt(int[] src, byte[] dest, int offset) {
-		offset = setInt(src.length, dest, offset);
-
-		for (int i = 0; i < src.length; i++) {
-			offset = setInt(src[i], dest, offset);
-		}
-		return offset;
-	}
-	
-	public static int[] getArrayInt(byte[] data, int offset) {
-		int length = getInt(data, offset);
-		offset += LEN_BYTE_INT;
-		int[] arr = new int[length];
-		for (int i = 0; i < length; i++) {
-			arr[i] = getInt(data, offset);
-			offset += LEN_BYTE_INT;
-		}
-		return arr;
-	}
 	
 	
 
@@ -119,26 +106,6 @@ public class UtilByteArray {
 
 	
 
-	public static int setArrayDouble(double[] src, byte[] dest,int offset) {
-			
-		offset = setInt(src.length, dest, offset);
-
-		for (int i = 0; i < src.length; i++) {
-			offset = setDouble(src[i], dest, offset);
-		}
-		return offset;
-	}
-	
-	public static double[] getArrayDouble(byte[] data, int offset) {
-		int length = getInt(data, offset);
-		offset += LEN_BYTE_DOUBLE;
-		double[] arr = new double[length];
-		for (int i = 0; i < length; i++) {
-			arr[i] = getDouble(data, offset);
-			offset += LEN_BYTE_DOUBLE;
-		}
-		return arr;
-	}
 
 	
 	
@@ -199,6 +166,59 @@ public class UtilByteArray {
 		return array;
 	}
 	
+	
+	/**
+	 * To save an integer array to a byte array,
+	 * one need to reserve a space for the length of the array 
+	 * in addition to the space for the array itself
+	 * 
+	 * @param src - 
+	 * @param dest - target byte array 
+	 * @param offset - offset 
+	 * @return
+	 */
+	public static int setArrayInt(int[] src, byte[] dest, int offset) {
+		offset = setInt(src.length, dest, offset);
+
+		for (int i = 0; i < src.length; i++) {
+			offset = setInt(src[i], dest, offset);
+		}
+		return offset;
+	}
+	
+	public static int[] getArrayInt(byte[] data, int offset) {
+		int length = getInt(data, offset);
+		offset += LEN_BYTE_INT;
+		int[] arr = new int[length];
+		for (int i = 0; i < length; i++) {
+			arr[i] = getInt(data, offset);
+			offset += LEN_BYTE_INT;
+		}
+		return arr;
+	}
+	
+	
+	
+	public static int setArrayDouble(double[] src, byte[] dest,int offset) {
+		
+		offset = setInt(src.length, dest, offset);
+
+		for (int i = 0; i < src.length; i++) {
+			offset = setDouble(src[i], dest, offset);
+		}
+		return offset;
+	}
+	
+	public static double[] getArrayDouble(byte[] data, int offset) {
+		int length = getInt(data, offset);
+		offset += LEN_BYTE_DOUBLE;
+		double[] arr = new double[length];
+		for (int i = 0; i < length; i++) {
+			arr[i] = getDouble(data, offset);
+			offset += LEN_BYTE_DOUBLE;
+		}
+		return arr;
+	}
 	
 
 }
@@ -377,11 +397,11 @@ class UtilByteArray101a {
 
 
 /**
- * - http://www.java2s.com/Book/Java/Examples/Convert_data_to_byte_array_back_and_forth.htm
+ * 
  * @author dwyk
  *
  */
-class UtilByteBuffer {
+class UtilByteBuffer101a {
 	
 	
 	//public static int LEN_BIT=1;

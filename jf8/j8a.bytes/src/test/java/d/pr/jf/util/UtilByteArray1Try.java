@@ -12,14 +12,14 @@ public class UtilByteArray1Try {
 	
 
 	/**
-	 * System.out.println( Boolean.BYTES );
-	 * System.out.println( String.B);
 	 * System.out.println( Bit.SIZE );		
+	 * System.out.println( Boolean.BYTES );
+	 * System.out.println( String.BYTES );
 	 */
 	@Test
 	public void t0a() {
 		
-		Assert.assertEquals( Byte.BYTES, UtilByteArray.LEN_BYTE_CHAR );		
+		Assert.assertEquals( Byte.BYTES, UtilByteArray.LEN_BYTE_BYTE );		
 		Assert.assertEquals( Short.BYTES, UtilByteArray.LEN_BYTE_SHORT );		
 		Assert.assertEquals( Integer.BYTES, UtilByteArray.LEN_BYTE_INT );		
 		Assert.assertEquals( Long.BYTES, UtilByteArray.LEN_BYTE_LONG );		
@@ -31,7 +31,7 @@ public class UtilByteArray1Try {
 	@Test
 	public void t0b_bits() {
 		
-		Assert.assertEquals( Byte.SIZE,    Byte.SIZE * UtilByteArray.LEN_BYTE_CHAR );		
+		Assert.assertEquals( Byte.SIZE,    Byte.SIZE * UtilByteArray.LEN_BYTE_BYTE );		
 		Assert.assertEquals( Short.SIZE,   Byte.SIZE * UtilByteArray.LEN_BYTE_SHORT );		
 		Assert.assertEquals( Integer.SIZE, Byte.SIZE * UtilByteArray.LEN_BYTE_INT );		
 		Assert.assertEquals( Long.SIZE,    Byte.SIZE * UtilByteArray.LEN_BYTE_LONG );		
@@ -219,9 +219,24 @@ public class UtilByteArray1Try {
 		
 	}
 
+	
+	
+	/**
+	 * To save an integer array to a byte array,
+	 * one need to reserve a space for the length of the array 
+	 * in addition to the space for the array itself
+	*/
 	@Test
 	public void t3c_array_int() {								
-		int intByteLen = UtilByteArray.LEN_BYTE_LONG;
+		int intByteLen = UtilByteArray.LEN_BYTE_INT;
+				
+		int [] arrVal = {3,5,7};
+		int iLen = arrVal.length;
+		int iOffset = 10;
+		int iByteArrLen  = iOffset + iLen * intByteLen + UtilByteArray.LEN_BYTE_INT;
+		byte [] byteArr = new byte[ iByteArrLen ];		
+		UtilByteArray.setArrayInt(arrVal, byteArr, iOffset);
+		
 	}
 	
 	@Test
