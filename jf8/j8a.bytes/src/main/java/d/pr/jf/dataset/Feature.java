@@ -1,6 +1,7 @@
-package d.pr.jf.dataset.feature;
+package d.pr.jf.dataset;
 
-import d.pr.jf.dataset.IntrByteSerializable;
+import org.apache.log4j.Logger;
+
 import d.pr.jf.dataset.numeric.NumArr;
 import d.pr.jf.dataset.numeric.NumArrFactory.NumArrType;
 import d.pr.jf.util.UtilByteArray;
@@ -14,7 +15,9 @@ import d.pr.jf.util.UtilByteArray;
  * @author dwyk
  *
  */
-public class Feature implements IntrByteSerializable {
+public class Feature implements ByteSerializableInterface {
+	
+	final static Logger logger = Logger.getLogger( Feature.class );	
 	
 	private String name;
 	private double min;
@@ -52,25 +55,54 @@ public class Feature implements IntrByteSerializable {
 		size += Integer.BYTES + upperBounds.length * Integer.BYTES;
 		
 
-		// 1 byte for name length and then the number of characters
-		size += 2 + (name != null ? name.length() : 0);
+		// Short (2 byte) for name length and then the number of characters
+		size += Short.BYTES + (name != null ? name.length() : 0);
 		
-		// min, max, factor, onLogScale
-		size += Double.BYTES + Double.BYTES + Double.BYTES + 1;
+		// min(8), max(8), factor(8), onLogScale(1)
+		size += Double.BYTES + Double.BYTES + Double.BYTES + Byte.BYTES;
 
 		return size;
 	}
 
 	@Override
 	public int toByteArray(byte[] arr, int offset) {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		offset = bins.toByteArray(arr, offset);
+		offset = UtilByteArray.setArrayInt(upperBounds, arr, offset);
+		offset = UtilByteArray.setString(name, arr, offset);
+		offset = UtilByteArray.setDouble(min, arr, offset);
+		offset = UtilByteArray.setDouble(max, arr, offset);
+		offset = UtilByteArray.setDouble(factor, arr, offset);
+		offset = UtilByteArray.setBoolean(onLogScale, arr, offset);
+		return offset;
+
 	}
 
 	@Override
 	public int fromByteArray(byte[] arr, int offset) {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		offset = bins.fromByteArray(arr, offset);
+		
+		upperBounds = UtilByteArray.getArrayInt(arr, offset);
+		offset += Integer.BYTES + upperBounds.length * Integer.BYTES;
+		
+		name = UtilByteArray.getString(arr, offset);
+		offset += Short.BYTES + name.length();
+		
+		min = UtilByteArray.getDouble(arr, offset);
+		offset += Double.BYTES;
+		
+		max = UtilByteArray.getDouble(arr, offset);
+		offset += Double.BYTES;
+		
+		factor = UtilByteArray.getDouble(arr, offset);
+		offset += Double.BYTES;
+		
+		onLogScale = UtilByteArray.getBoolean(arr, offset);
+		offset += Byte.BYTES;
+		
+		return offset;
+		
 	}
 	
 }

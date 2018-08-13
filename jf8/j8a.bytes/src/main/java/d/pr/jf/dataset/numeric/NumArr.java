@@ -1,10 +1,10 @@
 package d.pr.jf.dataset.numeric;
 
-import d.pr.jf.dataset.IntrByteSerializable;
+import d.pr.jf.dataset.ByteSerializableInterface;
 import d.pr.jf.dataset.numeric.NumArrFactory.NumArrType;
 
 
-public abstract class NumArr implements IntrByteSerializable {
+public abstract class NumArr implements ByteSerializableInterface {
 
 	
 		protected int length;

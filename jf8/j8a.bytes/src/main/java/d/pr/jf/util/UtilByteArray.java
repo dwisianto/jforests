@@ -5,6 +5,8 @@ package d.pr.jf.util;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 
+import org.apache.log4j.Logger;
+
 
 
 /**
@@ -14,6 +16,8 @@ import java.nio.ByteOrder;
  *
  */
 public class UtilByteArray {
+	
+	final static Logger logger = Logger.getLogger(UtilByteArray.class);	
 		
 	
 	public static int LEN_BYTE_BIT    = 1;
@@ -196,7 +200,8 @@ public class UtilByteArray {
 	
 	/**
 	 * To save an integer array to a byte array,
-	 * one need to reserve a space for the length of the array 
+	 * one need to reserve a space for the length of the array;
+	 * which is an integer; 
 	 * in addition to the space for the array itself
 	 * 
 	 * @param src - 

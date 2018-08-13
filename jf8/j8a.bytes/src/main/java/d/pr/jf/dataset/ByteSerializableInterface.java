@@ -3,7 +3,7 @@ package d.pr.jf.dataset;
 /**
  * @author Yasser Ganjisaffar <ganjisaffar at gmail dot com>
  */
-public interface IntrByteSerializable {
+public interface ByteSerializableInterface {
 	
 	public int getSizeInBits();
 
