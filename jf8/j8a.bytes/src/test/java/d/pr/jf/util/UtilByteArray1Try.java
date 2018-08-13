@@ -17,7 +17,10 @@ public class UtilByteArray1Try {
 	 * System.out.println( String.BYTES );
 	 */
 	@Test
-	public void t0a() {
+	public void t0a_bytes() {
+		
+		System.out.println( Byte.BYTES );
+
 		
 		Assert.assertEquals( Byte.BYTES, UtilByteArray.LEN_BYTE_BYTE );		
 		Assert.assertEquals( Short.BYTES, UtilByteArray.LEN_BYTE_SHORT );		
@@ -233,15 +236,43 @@ public class UtilByteArray1Try {
 		int [] arrVal = {3,5,7};
 		int iLen = arrVal.length;
 		int iOffset = 10;
-		int iByteArrLen  = iOffset + iLen * intByteLen + UtilByteArray.LEN_BYTE_INT;
+		int iByteArrLen  = iOffset + (iLen +1)* intByteLen;		
 		byte [] byteArr = new byte[ iByteArrLen ];		
 		UtilByteArray.setArrayInt(arrVal, byteArr, iOffset);
 		
 	}
 	
+	
+	/**
+	 * The length of the string is kept in a short format.
+	 * A string is converted to a char array
+	 * Each character
+	 * Thus, the size of the byte array is accumulation of  
+	 *  - the offset of the byte array
+	 *  - a short number for the size of the char array (string)
+	 *  - byte representation of each char array
+	 */
 	@Test
 	public void t3d_string() {								
-		int intByteLen = UtilByteArray.LEN_BYTE_LONG;
+		System.out.println( " > t3d_string < " );
+		int intByteLen = UtilByteArray.LEN_BYTE_SHORT;
+				
+		int offset  = 9;
+		String src1 = "mansjur";
+		
+		// offset, string char use 1 byte , string length is kept at 1 byte
+		int iDestLen = offset + src1.length() + intByteLen;
+		byte [] dest = new byte[ iDestLen ];
+		
+		//UtilByteArray.setString(src1, dest, offset);
+		UtilByteArray.setString2(src1, dest, offset); 
+		
+		String src2 = UtilByteArray.getString(dest, offset); 
+		
+		System.out.println( src1.toCharArray() );
+		System.out.println( src2.toCharArray() );
+		Assert.assertArrayEquals( src1.toCharArray(), src2.toCharArray() );
+		
 	}
 	
 		
@@ -253,6 +284,7 @@ public class UtilByteArray1Try {
 	@Ignore
 	@Test
 	public void t4a_boolean() {
+		System.out.println( " > boolean < " );
 		System.out.println("here");
 		
 	}

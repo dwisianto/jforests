@@ -1,4 +1,21 @@
 graph {
+  top -- DatasetClassification;
+  top -- DatasetRanking;
+  top -- IntrByteSerializable; 
+  IntrByteSerializable -- feature;
+  IntrByteSerializable -- numeric;
+  feature -- Feature;
+  feature -- Histogram;
+  numeric -- NumArrFactory;
+  NumArrFactory -- NumArrNull;
+  NumArrFactory -- NumArrByte;
+  NumArrFactory -- NumArrShort;
+  NumArrFactory -- NumArrInt; 
+  NumArrFactory -- NumArrLong;
+  
+ }
+
+graph {
     ByteSerializable -- NumericArray;
     ByteSerializable -- Feature;
     

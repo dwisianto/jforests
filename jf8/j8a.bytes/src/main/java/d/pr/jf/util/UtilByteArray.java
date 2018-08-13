@@ -18,8 +18,8 @@ public class UtilByteArray {
 	
 	public static int LEN_BYTE_BIT    = 1;
 	public static int LEN_BYTE_BOOL   = 1;
-	public static int LEN_BYTE_BYTE   = 1;
-	public static int LEN_BYTE_CHAR   = 2;
+	public static int LEN_BYTE_BYTE   = Byte.BYTES; // 1
+	//public static int LEN_BYTE_CHAR   = 2; // Should it be two or one
 	public static int LEN_BYTE_SHORT  = Short.BYTES; // 2
 	public static int LEN_BYTE_INT    = Integer.BYTES; // 4
 	public static int LEN_BYTE_LONG   = Long.BYTES; // 8
@@ -104,12 +104,14 @@ public class UtilByteArray {
 	
 	
 
-	
-
-
-	
-	
-	
+	/**
+	 * Each character occupies one byte
+	 * 
+	 * @param src
+	 * @param dest
+	 * @param offset
+	 * @return
+	 */
 	public static int setString(String src, byte[] dest, int offset) {
 		
 		if (src == null) {
@@ -141,6 +143,31 @@ public class UtilByteArray {
 	}
 	
 
+	/**
+	 * 
+	 * https://www.javacodegeeks.com/2010/11/java-best-practices-char-to-byte-and.html
+	 * 
+	 * @param src
+	 * @param dest
+	 * @param offset
+	 * @return
+	 */
+	public static int setString2(String src, byte[] dest, int offset) {
+		
+		if (src == null) {
+			offset = setShort((short) 0, dest, offset);
+		} else {
+			
+			offset = setShort((short) src.length(), dest,offset);
+			for (int i = 0; i < src.length(); i++) {
+				dest[offset] = (byte) src.charAt(i);
+				offset++;
+			}
+		}
+		
+		return offset;
+	}
+	
 	
 	public static int setBoolean(boolean value, byte[] array, int offset) {
 		array[offset] = (byte) (value ? 1 : 0);
