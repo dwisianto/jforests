@@ -1,9 +1,45 @@
 
+## Table of Contents
 
-- jforests
-	- util
-	- input
-	- config
+- [What are the packages in the original jforests?](#what-are-the-packages-in-the-original-jforests)
+- [How do I start](#how-do-i-start)
+- [What is Byte Array?](#what-is-byte-array) 
+- [Template](#template)
+
+
+
+## What are the packages in the original jforests ?
+
+Packages in jforests are as follows.
+  - dataset 
+  - util
+  - input
+  - config
+	
+GoTo: [top](#table-of-contents)	
+
+
+## How do I start
+
+
+  - dataset/feature
+  - util/byteArray
+  - input/
+
+GoTo: [top](#table-of-contents)	
+
+
+## What is Byte Array ? 
+
+GoTo: [top](#table-of-contents)	
+
+## What is Byte Buffer ? 
+
+GoTo: [top](#table-of-contents)	
+
+## Template
+GoTo: [top](#table-of-contents)	
+ 
 
 
 
@@ -12,6 +48,8 @@
 - one byte is essentially a character and byte array is a string  
 - One may convert from a byte to string and vice versa using Charset.UTF_8  
 - Saving byte array into a [File](https://www.mkyong.com/java/how-to-convert-array-of-bytes-into-file/)
+
+
 
 - dataset/ByteSerializable interface 
 	- is being used by NumericArr and Dataset
@@ -97,4 +135,6 @@
 - 
 - http://www.java2s.com/Book/Java/Examples/Convert_data_to_byte_array_back_and_forth.htm
 - https://docs.oracle.com/javase/8/docs/api/index.html?java/nio/ByteBuffer.html
+- 
+
 - 

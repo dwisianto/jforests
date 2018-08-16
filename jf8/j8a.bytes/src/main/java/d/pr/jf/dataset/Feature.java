@@ -9,10 +9,25 @@ import d.pr.jf.util.UtilByteArray;
 
 /**
  * - This class implements one feature in a machine learning problem
- * - The type of the feature is similar to the type of the bins;
+ * 
+ * - the Feature() constructor
+ *  * - Feature can be constructed directly from a numeric array; which is the bin
+ *  
+ * - getType
+ *   The type of the feature is similar to the type of the bins;
  *   which could be one of the type of the NumArrType.Short
- * - 
- * @author dwyk
+ *   
+ * - ByteSerializableInterface Implementation
+ *     getSizeInBytes
+ *     getSizeInBits
+ *     toByteArray
+ *     fromByteArray
+ * 
+ * - getNumberOfValues
+ * - getOriginalValues
+ * 
+ * 
+ * 
  *
  */
 public class Feature implements ByteSerializableInterface {
@@ -40,8 +55,8 @@ public class Feature implements ByteSerializableInterface {
 	
 
 	@Override
-	public int getSizeInBits() {
-		// TODO Auto-generated method stub
+	public int getSizeInBits() { 		// TODO Auto-generated method stub
+		int size = bins.getSizeInBits();
 		return 0;
 	}
 
@@ -104,6 +119,82 @@ public class Feature implements ByteSerializableInterface {
 		return offset;
 		
 	}
+	
+	
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		if (name != null) {
+			if (name.length() > Byte.MAX_VALUE) {
+				this.name = name.substring(0, Byte.MAX_VALUE);
+			} else {
+				this.name = name;
+			}
+		}
+	}
+
+	public double getMin() {
+		return min;
+	}
+
+	public void setMin(double min) {
+		this.min = min;
+	}
+
+	public double getMax() {
+		return max;
+	}
+
+	public void setMax(double max) {
+		this.max = max;
+	}
+
+	public double getFactor() {
+		return factor;
+	}
+
+	public void setFactor(double factor) {
+		this.factor = factor;
+	}
+
+	public boolean isOnLogScale() {
+		return onLogScale;
+	}
+
+	public void setOnLogScale(boolean onLogScale) {
+		this.onLogScale = onLogScale;
+	}
+
+	public Feature getSubSampleFeature(int[] indices) {
+		Feature subSampleFeature = new Feature(bins.getSubSample(indices));
+		subSampleFeature.upperBounds = upperBounds;
+		subSampleFeature.name = name;
+		subSampleFeature.min = min;
+		subSampleFeature.max = max;
+		subSampleFeature.factor = factor;
+		subSampleFeature.onLogScale = onLogScale;
+		return subSampleFeature;
+	}
+	
+	
+	
+	public int getNumberOfValues() {
+		return upperBounds.length;
+	}
+	
+	public double getOriginalValue(int scaledValue) {
+		double value = scaledValue / factor;
+		if (onLogScale) {
+			value = Math.exp(value);
+			value = value + min - 1;
+		} else {
+			value += min;
+		}
+		return value;
+	}
+	
 	
 }
 

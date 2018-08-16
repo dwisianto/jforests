@@ -1,5 +1,7 @@
 package d.pr.jf.dataset;
 
-public class DatasetRanking {
+public class DatasetRanking extends DatasetClustering {
+	
+	
 
 }
